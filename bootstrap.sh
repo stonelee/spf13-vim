@@ -24,6 +24,8 @@ git clone --recursive -b 3.0 http://github.com/spf13/spf13-vim.git $endpath
 mkdir -p $endpath/.vim/bundle
 ln -s $endpath/.vimrc $HOME/.vimrc
 ln -s $endpath/.vim $HOME/.vim
+ln -s $endpath/.vimrc.bundles.local $HOME/.vimrc.bundles.local
+ln -s $endpath/.vimrc.local $HOME/.vimrc.local
 
 echo "Installing Vundle"
 git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
