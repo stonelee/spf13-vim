@@ -1,0 +1,10 @@
+set relativenumber          " 显示相对行号
+
+" Faster Esc
+inoremap jj <ESC>
+
+nmap <leader>ee :edit ~/.vimrc<cr>        "快速打开.vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
+
+set listchars=tab:▸\ ,eol:¬
+
