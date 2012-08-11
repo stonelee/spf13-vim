@@ -8,3 +8,17 @@ autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
 
 set listchars=tab:▸\ ,eol:¬
 
+" {{{ plugin - vim-coffee-script CoffeeScript插件,更好的js
+
+"自动编译为相应的js文件,有错误的话会报告
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow
+"按缩进折叠
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent  nofoldenable
+"纵向分栏
+let coffee_compile_vert = 1
+
+vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+map <leader>c :CoffeeCompile<CR>
+"两窗口预览
+map <leader>cw :CoffeeCompile watch vert<CR>
+"}}}
