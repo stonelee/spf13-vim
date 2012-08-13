@@ -8,6 +8,13 @@ autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
 
 set listchars=tab:▸\ ,eol:¬
 
+" {{{全文搜索选中的文字
+" 向下搜索
+:vmap <silent> <leader>f y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+" 向上搜索
+:vmap <silent> <leader>F y?<c-r>=escape(@", '\\/.*$^~[]')<cr><cr>
+" }}}
+
 " {{{ plugin - vim-coffee-script CoffeeScript插件,更好的js
 
 "自动编译为相应的js文件,有错误的话会报告
