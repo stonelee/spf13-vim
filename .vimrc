@@ -86,7 +86,7 @@
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
             Bundle 'garbas/vim-snipmate'
-            Bundle 'spf13/snipmate-snippets'
+            Bundle 'stonelee/snipmate-snippets'
             " Source support_function.vim to support snipmate-snippets.
             if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
                 source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
