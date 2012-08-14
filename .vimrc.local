@@ -1,5 +1,9 @@
 set relativenumber          " 显示相对行号
 
+set shiftwidth=2                " use indents of 2 spaces
+set tabstop=2                   " an indentation every four columns
+set softtabstop=2               " let backspace delete indent
+
 " Faster Esc
 inoremap jj <ESC>
 
