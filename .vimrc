@@ -95,9 +95,9 @@
             Bundle 'tpope/vim-fugitive'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'godlygeek/tabular'
-            if executable('ctags')
-                Bundle 'majutsushi/tagbar'
-            endif
+            "if executable('ctags')
+                "Bundle 'majutsushi/tagbar'
+            "endif
             Bundle 'Shougo/neocomplcache'
         endif
 
@@ -367,7 +367,7 @@
     " }
 
     " Ctags {
-        set tags=./tags;/,~/.vimtags
+        "set tags=./tags;/,~/.vimtags
     " }
 
     " AutoCloseTag {
@@ -454,7 +454,7 @@
      "}
 
      " TagBar {
-        nnoremap <silent> <leader>tt :TagbarToggle<CR>
+        "nnoremap <silent> <leader>tt :TagbarToggle<CR>
      "}
 
      " PythonMode {
