@@ -1,3 +1,5 @@
+let NERDTreeIgnore=['\.js$', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+
 set relativenumber          " 显示相对行号
 
 set shiftwidth=2                " use indents of 2 spaces
