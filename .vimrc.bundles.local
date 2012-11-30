@@ -1,8 +1,0 @@
-let g:spf13_bundle_groups=['general', 'programming', 'ruby', 'python', 'javascript', 'html', 'misc']
-
-Bundle 'tpope/vim-repeat'
-Bundle 'kchmck/vim-coffee-script'
-
-"Bundle 'einars/js-beautify'
-"Bundle 'editorconfig/editorconfig-vim'
-Bundle 'stonelee/vim-jsbeautify'

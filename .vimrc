@@ -46,10 +46,17 @@
             Bundle 'mileszs/ack.vim'
         endif
 
-    " Use local bundles if available {
-        if filereadable(expand("~/.vimrc.bundles.local"))
-            source ~/.vimrc.bundles.local
-        endif
+    " My local bundles{
+      let g:spf13_bundle_groups=['general', 'programming', 'ruby', 'python', 'javascript', 'html', 'misc']
+
+      Bundle 'mattn/zencoding-vim'
+
+      Bundle 'tpope/vim-repeat'
+      Bundle 'kchmck/vim-coffee-script'
+
+      "Bundle 'einars/js-beautify'
+      "Bundle 'editorconfig/editorconfig-vim'
+      Bundle 'stonelee/vim-jsbeautify'
     " }
 
     " In your .vimrc.bundles.local file"
@@ -126,7 +133,6 @@
         if count(g:spf13_bundle_groups, 'html')
             Bundle 'HTML-AutoCloseTag'
             Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-            Bundle 'mattn/zencoding-vim'
         endif
 
     " Ruby
@@ -602,18 +608,57 @@ function! NERDTreeInitAsNeeded()
 endfunction
 " }
 
-" Use local vimrc if available {
-    if filereadable(expand("~/.vimrc.local"))
-        source ~/.vimrc.local
-    endif
+" My local vimrc {
+  "let NERDTreeIgnore=['\.js$', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+  let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr']
+
+  set relativenumber          " 显示相对行号
+
+  set shiftwidth=2                " use indents of 2 spaces
+  set tabstop=2                   " an indentation every four columns
+  set softtabstop=2               " let backspace delete indent
+
+  " Faster Esc
+  inoremap jj <ESC>
+
+  nmap <leader>ee :edit ~/.vimrc<cr>        "快速打开.vimrc
+  autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
+
+  "set listchars=tab:▸\ ,eol:¬
+  set listchars=precedes:«,extends:»,tab:▸·,trail:∙,eol:¬
+
+  " {{{全文搜索选中的文字
+  " 向下搜索
+  :vmap <silent> <leader>f y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+  " 向上搜索
+  :vmap <silent> <leader>F y?<c-r>=escape(@", '\\/.*$^~[]')<cr><cr>
+  " }}}
+
+  " {{{ plugin - vim-coffee-script CoffeeScript插件,更好的js
+
+  "自动编译为相应的js文件,有错误的话会报告
+  au BufWritePost *.coffee silent CoffeeMake! -b | cwindow
+  "按缩进折叠
+  au BufNewFile,BufReadPost *.coffee setl foldmethod=indent  nofoldenable
+  "纵向分栏
+  let coffee_compile_vert = 1
+
+  vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+  map <leader>c :CoffeeCompile<CR>
+  "两窗口预览
+  map <leader>cw :CoffeeCompile watch vert<CR>
+  "}}}
+
+
+  " {{{ plugin - vim-jsbeautify 美化js,html,css代码
+  autocmd FileType javascript noremap <buffer> <leader>ff :call JsBeautify()<cr>
+  " for html
+  autocmd FileType html noremap <buffer> <leader>ff :call HtmlBeautify()<cr>
+  " for css or scss
+  autocmd FileType css noremap <buffer> <leader>ff :call CSSBeautify()<cr>
+  " }}}
+
+  "au BufRead,BufNewFile *.tpl setf tpl
+  "将扩展名为tpl的文件的filetype识别为tpl
+  au BufRead,BufNewFile * if &ft == 'smarty' | set ft=tpl | endif
 " }
-
-" Use local gvimrc if available and gui is running {
-    if has('gui_running')
-        if filereadable(expand("~/.gvimrc.local"))
-            source ~/.gvimrc.local
-        endif
-    endif
-" }
-
-
