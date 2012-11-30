@@ -624,8 +624,11 @@ endfunction
   nmap <leader>ee :edit ~/.vimrc<cr>        "快速打开.vimrc
   autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
 
-  "set listchars=tab:▸\ ,eol:¬
-  set listchars=precedes:«,extends:»,tab:▸·,trail:∙,eol:¬
+  if !(has('win32') || has('win64'))
+    "set listchars=tab:▸\ ,eol:¬
+    set listchars=precedes:«,extends:»,tab:▸·,trail:∙,eol:¬
+  endif
+
 
   " {{{全文搜索选中的文字
   " 向下搜索

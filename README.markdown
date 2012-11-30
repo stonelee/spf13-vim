@@ -362,6 +362,12 @@ Here's some tips if you've never used VIM before:
   convenient location.
 * Keyboard [cheat sheet](http://walking-without-crutches.heroku.com/image/images/vi-vim-cheat-sheet.png).
 
+
+# Windows下安装说明
+
+* 使用管理员权限打开命令行，运行spf13-vim-windows-install.cmd
+* 打开gvim,安装插件BundleInstall
+
 [Git]:http://git-scm.com
 [Curl]:http://curl.haxx.se
 [msysgit]:http://code.google.com/p/msysgit
