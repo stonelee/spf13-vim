@@ -624,6 +624,8 @@ endfunction
   nmap <leader>ee :edit ~/.vimrc<cr>        "快速打开.vimrc
   autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
 
+  nmap <leader>sn :edit ~/.vim/bundle/snipmate-snippets/snippets/tpl.snippets<cr> "快速打开模板文件
+
   if !(has('win32') || has('win64'))
     "set listchars=tab:▸\ ,eol:¬
     set listchars=precedes:«,extends:»,tab:▸·,trail:∙,eol:¬
@@ -659,6 +661,23 @@ endfunction
   autocmd FileType html noremap <buffer> <leader>ff :call HtmlBeautify()<cr>
   " for css or scss
   autocmd FileType css noremap <buffer> <leader>ff :call CSSBeautify()<cr>
+
+  "~/.editorconfig中进行配置
+
+  "[**.js]
+  "indent_style = space
+  "indent_size = 2
+
+  "[**.css]
+  "indent_style = space
+  "indent_size = 2
+
+  "[**.html]
+  "indent_style = space
+  "indent_size = 2
+  "max_char = 78
+  "brace_style = expand
+
   " }}}
 
   "au BufRead,BufNewFile *.tpl setf tpl
